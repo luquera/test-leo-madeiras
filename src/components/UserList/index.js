@@ -67,11 +67,11 @@ const UserList = () => {
         <h1>Lista Usuários</h1>
         <p>Clique duas vezes em um campo para editar</p>
         <p>Selecione e clique em "Limpar" para deletar</p>
+        <Link to="/form">
+          <Button>Novo</Button>
+        </Link>
+        <Button onClick={handlePurge}>Limpar</Button>
       </TitleBox>
-      <Link to="/form">
-        <Button>Novo</Button>
-      </Link>
-      <Button onClick={handlePurge}>Limpar</Button>
       <DataGrid
         rows={usersList}
         columns={columns}

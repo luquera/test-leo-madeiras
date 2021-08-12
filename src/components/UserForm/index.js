@@ -35,10 +35,10 @@ const UserForm = () => {
     <Container>
       <TitleBox>
         <h1 data-testid='title'>Cadastrar Novo Usuário</h1>
+        <Link to="/">
+          <Button>Listagem</Button>
+        </Link>
       </TitleBox>
-      <Link to="/">
-        <Button>Listagem</Button>
-      </Link>
       <FormContent onSubmit={handleSubmit(saveUser)}>
         <FormGroup>
           <label htmlFor="nome">Nome</label>
