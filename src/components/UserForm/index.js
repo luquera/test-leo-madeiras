@@ -11,12 +11,22 @@ import {
 import { Controller, useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import isValidCPF from "../../utils/isValidCPF";
+import useLocalStorageState from 'use-local-storage-state'
+import { Link } from "gatsby"
 
 const UserForm = () => {
+  const [ usersList, setUsersList ] = useLocalStorageState('usersList', [])
   const { register, formState: { errors }, handleSubmit, control } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const saveUser = ({nome, cpf, telefone, email}) => {   
+    const removeMask = (str) => str.replace(/[^a-zA-Z0-9]/g, '');
+    setUsersList([...usersList, {
+      id: usersList.length+"",
+      nome,
+      email,
+      cpf: removeMask(cpf),
+      telefone: removeMask(telefone)
+    }])
     toast.success("Salvo com sucesso!")
   }
 
@@ -26,7 +36,10 @@ const UserForm = () => {
       <TitleBox>
         <h1>Cadastrar Novo Usuário</h1>
       </TitleBox>
-      <FormContent onSubmit={handleSubmit(onSubmit)}>
+      <Link to="/">
+        <Button>Listagem</Button>
+      </Link>
+      <FormContent onSubmit={handleSubmit(saveUser)}>
         <FormGroup>
           <label htmlFor="nome">Nome</label>
           <Input 
@@ -88,7 +101,7 @@ const UserForm = () => {
             required/>
           {errors.email && <span className="input-error">Email inválido</span>}
         </FormGroup>
-        <Button type="submit">Salvar</Button>
+        <Button type="submit" style={{ margin: 0 }}>Salvar</Button>
       </FormContent>
     </Container>
   </>)

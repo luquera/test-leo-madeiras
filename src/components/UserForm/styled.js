@@ -6,18 +6,6 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const LoaderBox = styled.div`
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #FFF;
-`;
-
 const TitleBox = styled.div`
   padding-top: 120px;
   margin-bottom: 80px;
@@ -164,9 +152,8 @@ const Button = styled.button`
   border: none;
   justify-self: end;
   grid-column: 2;
-  margin-top: 8px;
+  margin: 8px auto 32px auto;
   cursor: pointer;
-  margin-bottom: 200px;
 
   ${media.lessThan('medium')`
     grid: none;
@@ -177,7 +164,6 @@ const Button = styled.button`
 
 export {
   Container,
-  LoaderBox,
   TitleBox,
   FormContent,
   FormGroup,
