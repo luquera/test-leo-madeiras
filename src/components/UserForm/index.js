@@ -34,7 +34,7 @@ const UserForm = () => {
     <ToastContainer />
     <Container>
       <TitleBox>
-        <h1>Cadastrar Novo Usuário</h1>
+        <h1 data-testid='title'>Cadastrar Novo Usuário</h1>
       </TitleBox>
       <Link to="/">
         <Button>Listagem</Button>
