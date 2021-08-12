@@ -15,4 +15,9 @@ module.exports = {
   setupFiles: [`<rootDir>/loadershim.js`],
   testEnvironment: `jsdom`,
   setupFilesAfterEnv: ["<rootDir>/setup-test-env.js"],
+  collectCoverageFrom: [
+    "./src/**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ]
 }
